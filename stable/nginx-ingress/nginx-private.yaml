@@ -1,0 +1,20 @@
+controller:
+ hostNetwork : true
+ kind: DaemonSet
+ dnsPolicy: ClusterFirstWithHostNet
+ ingressClass: nginx-private
+ reportNodeInternalIp: true
+ daemonset:
+  useHostPort: true
+ # hostPorts:
+ #  http: 11600
+ #  https: 21600
+ containerPort:
+ # http: 11600
+ # https: 21600
+ service:
+  enabled: false
+#  ports:
+#   http: 11600
+#   https: 21600
+ nodeSelector: {"ingress":"nginx-private"}
